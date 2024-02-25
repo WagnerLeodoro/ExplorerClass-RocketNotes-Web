@@ -13,10 +13,10 @@ export function Header() {
   return (
     <Container>
       <Profile to="/profile">
-        <img src={avatarUrl} alt="foto do usuário" />
+        <img src={avatarUrl} alt={user.name} />
         <div>
           <span>Bem vindo</span>
-          <strong>Wagner Leodoro</strong>
+          <strong>{user.name}</strong>
         </div>
       </Profile>
       <Logout onClick={signOut}>
