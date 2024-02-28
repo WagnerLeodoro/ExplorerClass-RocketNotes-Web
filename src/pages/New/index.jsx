@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { api } from '../../services/api'
 
@@ -9,6 +9,7 @@ import { Button } from '../../components/Button'
 import { Container, Form } from './style'
 import { Textarea } from '../../components/Textarea'
 import { NoteItem } from '../../components/NoteItem'
+import { ButtonText } from '../../components/ButtonText'
 
 export function New() {
   const [title, setTitle] = useState('')
@@ -40,6 +41,10 @@ export function New() {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted))
   }
 
+  function handleBack() {
+    navigate(-1)
+  }
+
   async function handleNewNote() {
     if (!title) {
       return alert('Digite um título para a sua nota!')
@@ -61,7 +66,7 @@ export function New() {
       links,
     })
     alert('Nota criada com sucesso!')
-    navigate('/')
+    navigate(-1)
   }
   return (
     <Container>
@@ -71,7 +76,7 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <Link to="/">voltar</Link>
+            <ButtonText title="Voltar" onClick={handleBack} />
           </header>
 
           <Input
