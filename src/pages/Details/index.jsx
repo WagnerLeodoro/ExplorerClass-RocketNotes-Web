@@ -34,6 +34,7 @@ function Details() {
       setData(response.data)
     }
     fetchNote()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
